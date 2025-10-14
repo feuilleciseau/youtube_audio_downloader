@@ -1,54 +1,82 @@
-# YouTube Audio Downloader
+# YouTube Downloader
 
-This Python script allows you to download audio from YouTube videos and playlists in MP3 format. It uses the `yt-dlp` library to handle the downloads and `tkinter` to provide a simple graphical user interface (GUI) for the user.
+This Python project allows you to **download audio from YouTube videos or playlists** in MP3 format. It provides both a **modern command-line interface (CLI)** and a **graphical user interface (GUI)**, giving you flexibility depending on your workflow.
 
 ## Features
-- **Download audio from multiple YouTube videos**: Enter multiple URLs, each on a new line, and the audio for each video will be downloaded as an MP3 file.
-- **Download YouTube playlists**: Enter a playlist URL, and all videos in the playlist will be downloaded as MP3 files.
-- **Keeps an audio download history**: URLs of downloaded videos are saved in a text file (`history.txt`).
+
+- Download the audio from a single YouTube video
+- Download all audios from a YouTube playlist
+- Interactive CLI menu with arrow navigation
+- Modern GUI built with ttkbootstrap
+- Simple help command to display all available options
 
 ## Requirements
-To use this script, you need to have the following Python libraries installed:
 
-- `yt-dlp`: For downloading YouTube videos.
-- `tkinter`: For the GUI interface.
-
-You can install the required libraries by running the following command:
+To run this project, install the required dependencies using:
 
 ```bash
 pip install -r requirements.txt
 ```
-This will automatically install all the dependencies listed in the requirements.txt file.
 
-> Note: `tkinter` is typically included with Python, but if it's missing, you may need to install it separately.
+This will install:
+
+- `yt-dlp` — for downloading audio
+- `rich` — for colorful CLI messages
+- `questionary` — for interactive CLI menus
+- `ttkbootstrap` — for a modern GUI
+
+> Note: `tkinter` is typically included with Python by default. If it’s missing, you may need to install it separately depending on your OS.
 
 ## Usage
 
-1. **Download Individual Video Audio**
-    - Open the application.
-    - Paste multiple YouTube video URLs in the "Enter YouTube video URLs" text area, separating each URL with a new line.
-    - Click "Download Audio" to start the download for each URL.
-    - The audio files will be saved in the Media folder.
+Run the script using:
 
-2. **Download Playlist Audio**
-    - Enter the URL of a YouTube playlist in the "YouTube playlist URL" field.
-    - Click "Download Playlist Audio" to download all videos in the playlist.
-    - The audio files will be saved in the `Media` folder with filenames like: `Playlist Index - Title.mp3`.
+```bash
+python main.py <command> [url]
+```
 
-3. **History**
-    - All URLs that are downloaded are saved in the `history.txt` file for future reference.
+### Available Commands
+
+
+| Command            | Description                                    |
+| ------------------ | ---------------------------------------------- |
+| `cli`              | Launch the interactive command-line interface  |
+| `gui`              | Launch the graphical user interface            |
+| `s <video_url>`    | Download audio from a single YouTube video     |
+| `p <playlist_url>` | Download audio from a YouTube playlist         |
+| `help`             | Show the help menu with all available commands |
+
+### Examples
+
+``` bash
+# Launch the interactive CLI
+python main.py cli
+
+# Launch the graphical user interface
+python main.py gui
+
+# Download audio from a single YouTube video
+python main.py s https://youtube.com/watch?v=XXXXXXX
+
+# Download all audios from a YouTube playlist
+python main.py p https://youtube.com/playlist?list=XXXXXXX
+```
 
 ## Folder Structure
 
 ```bash
-youtube_audio_downloader/
-├── main.py                     # Main GUI script
-├── history.txt                 # A log of all downloaded video URLs
-├── requirements.txt            # List of dependencies
+YT_donwloader/
+├── main.py                     # Main entry point
+└── utils/
+    ├── cli.py                    # Interactive command-line interface
+    ├── gui.py                    # Graphical user interface
+    ├── help.py                   # Help menu (text-based)
+    └── yt_downloader.py          # Download logic
+├── requirements.txt            # Dependencies list
 ├── LICENSE                     # License file (MIT License)
-├── README.md                   # This file
-└── Media/                      # Folder where all downloaded audio files are saved
+└── README.md                   # Project documentation
 ```
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
