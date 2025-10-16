@@ -37,14 +37,14 @@ python main.py <command> [url]
 
 ### Available Commands
 
-
-| Command            | Description                                    |
-| ------------------ | ---------------------------------------------- |
-| `cli`              | Launch the interactive command-line interface  |
-| `gui`              | Launch the graphical user interface            |
-| `s <video_url>`    | Download audio from a single YouTube video     |
-| `p <playlist_url>` | Download audio from a YouTube playlist         |
-| `help`             | Show the help menu with all available commands |
+| Command                     | Description                                                 |
+| --------------------------- | ----------------------------------------------------------- |
+| `cli`                       | Launch the interactive command-line interface               |
+| `gui`                       | Launch the graphical user interface                         |
+| `s <video_url>`             | Download audio from a single YouTube video                  |
+| `s <file.txt>`              | Download audio from multiple videos listed in a text file   |
+| `p <playlist_url>`          | Download audio from a YouTube playlist                      |
+| `help`                      | Show the help menu with all available commands              |
 
 ### Examples
 
@@ -57,6 +57,9 @@ python main.py gui
 
 # Download audio from a single YouTube video
 python main.py s https://youtube.com/watch?v=XXXXXXX
+
+# Download audio from a list of video URLs in a file
+python main.py s song_to_download.txt
 
 # Download all audios from a YouTube playlist
 python main.py p https://youtube.com/playlist?list=XXXXXXX
