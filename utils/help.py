@@ -9,6 +9,7 @@ class Help:
         print("  cli               Launch the interactive command-line interface")
         print("  gui               Launch the graphical user interface")
         print("  s <video_url>     Download audio from a single video")
+        print("  s <file.txt>      Download audio from multiple videos listed in a file")
         print("  p <playlist_url>  Download audio from a playlist")
         print("  help              Show this help message\n")
         print("Examples:")
