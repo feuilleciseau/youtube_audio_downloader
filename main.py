@@ -24,13 +24,21 @@ def main():
 
     elif len(argv) == 3:
         cmd = argv[1]
-        url = argv[2]
+        input_arg = argv[2]
 
         if cmd == "s":
-            download_audio_single(url)
+            if input_arg.endswith(".txt"):
+                try:
+                    with open(input_arg, "r") as file:
+                        urls = [line.strip() for line in file if line.strip()]
+                        for url in urls:
+                            download_audio_single(url)
+
+                except FileNotFoundError:
+                    print(f"{input_arg} not found !")
 
         elif cmd == "p":
-            download_audio_playlist(url)
+            download_audio_playlist(input_arg)
 
 
 if __name__ == "__main__":
