@@ -42,8 +42,11 @@ def download_audio_single(url:str, output_folder:str=OUTPUT):
 
     try:
         with YoutubeDL(ydl_opts) as ydl:
+            print("")
+            print(f"donwloading {url} ...")
             ydl.download([url])
         print("Download complete!")
+
     except Exception as e:
         print(f"ERROR: {e}")
 
@@ -76,7 +79,10 @@ def download_audio_playlist(url:str, output_folder:str=OUTPUT):
 
     try:
         with YoutubeDL(ydl_opts) as ydl:
+            print("")
+            print(f"donwloading playlist {url} ...")
             ydl.download([url])
         print("Download complete!")
+
     except Exception as e:
         print(f"ERROR: {e}")
