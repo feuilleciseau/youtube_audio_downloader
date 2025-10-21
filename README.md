@@ -39,7 +39,6 @@ python main.py <command> [url]
 
 | Command                     | Description                                                 |
 | --------------------------- | ----------------------------------------------------------- |
-| `cli`                       | Launch the interactive command-line interface               |
 | `gui`                       | Launch the graphical user interface                         |
 | `<video_url>`               | Download audio from a single YouTube video or playlist      |
 | `<file.txt>`                | Download audio from multiple videos listed in a text file   |
@@ -48,9 +47,6 @@ python main.py <command> [url]
 ### Examples
 
 ``` bash
-# Launch the interactive CLI
-python main.py cli
-
 # Launch the graphical user interface
 python main.py gui
 
@@ -70,7 +66,6 @@ python main.py https://youtube.com/playlist?list=XXXXXXX
 YT_donwloader/
 ├── main.py                     # Main entry point
 └── utils/
-    ├── cli.py                    # Interactive command-line interface
     ├── gui.py                    # Graphical user interface
     ├── help.py                   # Help menu (text-based)
     └── yt_downloader.py          # Download logic
