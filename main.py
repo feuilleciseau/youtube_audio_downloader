@@ -1,7 +1,6 @@
 from sys import argv
 import json
 from utils.yt_downloader import download_audio_single, download_audio
-from utils.cli import CLI
 from utils.gui import GUI
 from utils.help import Help
 
@@ -29,11 +28,7 @@ def download_from_txt(urls_file):
 def main(config):
     if len(argv) == 2:
 
-        if argv[1] == "cli":
-            cli = CLI()
-            cli.run()
-
-        elif argv[1] == "gui":
+        if argv[1] == "gui":
             gui = GUI()
             gui.run()
 
