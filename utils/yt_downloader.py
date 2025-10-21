@@ -86,3 +86,12 @@ def download_audio_playlist(url:str, output_folder:str=OUTPUT):
 
     except Exception as e:
         print(f"ERROR: {e}")
+
+def download_audio(url: str, output_folder:str=OUTPUT):
+    """
+    Check if the url is about a playlist or single video. and call the appropriate function to donwload audio.
+    """
+    if "&list=" in url or "playlist?" in url:
+        download_audio_playlist(url, output_folder)
+    else:
+        download_audio_single(url, output_folder)
