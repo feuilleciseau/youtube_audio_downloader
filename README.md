@@ -20,8 +20,6 @@ pip install -r requirements.txt
 This will install:
 
 - `yt-dlp` — for downloading audio
-- `rich` — for colorful CLI messages
-- `questionary` — for interactive CLI menus
 - `ttkbootstrap` — for a modern GUI
 
 > Note: `tkinter` is typically included with Python by default. If it’s missing, you may need to install it separately depending on your OS.
