@@ -6,7 +6,6 @@ This Python project allows you to **download audio from YouTube videos or playli
 
 - Download the audio from a single YouTube video
 - Download all audios from a YouTube playlist
-- Interactive CLI menu with arrow navigation
 - Modern GUI built with ttkbootstrap
 - Simple help command to display all available options
 
