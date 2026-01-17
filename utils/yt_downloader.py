@@ -3,6 +3,13 @@ from yt_dlp import YoutubeDL
 
 OUTPUT = "Downloads"
 
+def create_output_folder(output_folder:str):
+    """
+    Create output folder if not exist
+    """
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
 def download_audio_single(url:str, output_folder):
     """
     Downloads the audio from a YouTube video using the provided URL.
@@ -11,8 +18,6 @@ def download_audio_single(url:str, output_folder):
         url (str): The URL of the YouTube video.
         output_folder (str): The directory where the audio file will be saved.
     """
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
 
     ydl_opts = {
         'format': 'bestaudio[ext=m4a]/bestaudio/best',
@@ -54,8 +59,6 @@ def download_audio_playlist(url:str, output_folder):
     """
     Downloads the audio from all videos in a YouTube playlist using the playlist URL.
     """
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
 
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -102,6 +105,8 @@ def download_audio(url: str, output_folder:str=OUTPUT):
     """
     Check if the url is about a youtube playlist, text file, or single video. and call the appropriate function to donwload audio.
     """
+    create_output_folder(output_folder)
+
     if "&list=" in url or "playlist?" in url:
         download_audio_playlist(url, output_folder)
 
