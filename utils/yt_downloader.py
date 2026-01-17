@@ -107,14 +107,11 @@ def download_audio(url: str, output_folder:str=OUTPUT):
     """
     create_output_folder(output_folder)
 
-    if "&list=" in url or "playlist?" in url:
-        download_audio_playlist(url, output_folder)
-
-    elif url.startswith("https://"):
-        download_audio_single(url, output_folder)
-
-    elif url.endswith(".txt"):
+    if url.endswith(".txt"):
         download_audio_txt(url, output_folder)
 
+    elif "list=" in url or "playlist?" in url:
+        download_audio_playlist(url, output_folder)
+
     else:
-        print(f"Incorrect URL : {url}")
+        download_audio_single(url, output_folder)
