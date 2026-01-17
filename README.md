@@ -41,13 +41,13 @@ python main.py <command>
 
 ``` bash
 # Download audio from a single YouTube video
-python main.py https://youtube.com/watch?v=XXXXXXX
+python main.py "https://youtube.com/watch?v=XXXXXXX"
 
 # Download audio from a list of video URLs in a file
 python main.py song_to_download.txt
 
 # Download all audios from a YouTube playlist
-python main.py https://youtube.com/playlist?list=XXXXXXX
+python main.py "https://www.youtube.com/watch?v=XXXXXXlist=XXXXXXX"
 ```
 
 ## Folder Structure
