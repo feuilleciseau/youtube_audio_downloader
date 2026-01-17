@@ -6,14 +6,15 @@ from utils.help import Help
 def main():
     if len(argv) == 2:
 
-        if argv[1] == "help" or argv[1] == "h":
+        if argv[1].lower() in {"help", "h", "-h", "--help"}:
             Help.show()
 
         else:
             download_audio(argv[1])
 
     else:
-        Help.show()
+        url = input("Enter Url : ").strip()
+        download_audio(url)
 
 
 if __name__ == "__main__":
