@@ -1,12 +1,12 @@
 # YouTube Downloader
 
-This Python project allows you to **download audio from YouTube videos or playlists** in MP3 format. It provides both a **modern command-line interface (CLI)** and a **graphical user interface (GUI)**, giving you flexibility depending on your workflow.
+This Python project allows you to **download audio from YouTube videos or playlists** in MP3 format.
 
 ## Features
 
 - Download the audio from a single YouTube video
 - Download all audios from a YouTube playlist
-- Modern GUI built with ttkbootstrap
+- Download all audios from urls in a text file
 - Simple help command to display all available options
 
 ## Requirements
@@ -19,24 +19,20 @@ pip install -r requirements.txt
 
 This will install:
 
-- `yt-dlp` — for downloading audio
-- `ttkbootstrap` — for a modern GUI
-
-> Note: `tkinter` is typically included with Python by default. If it’s missing, you may need to install it separately depending on your OS.
+- `yt-dlp` — for downloading from Youtube
 
 ## Usage
 
 Run the script using:
 
 ```bash
-python main.py <command> [url]
+python main.py <command>
 ```
 
 ### Available Commands
 
 | Command                     | Description                                                 |
 | --------------------------- | ----------------------------------------------------------- |
-| `gui`                       | Launch the graphical user interface                         |
 | `<video_url>`               | Download audio from a single YouTube video or playlist      |
 | `<file.txt>`                | Download audio from multiple videos listed in a text file   |
 | `help`                      | Show the help menu with all available commands              |
@@ -44,9 +40,6 @@ python main.py <command> [url]
 ### Examples
 
 ``` bash
-# Launch the graphical user interface
-python main.py gui
-
 # Download audio from a single YouTube video
 python main.py https://youtube.com/watch?v=XXXXXXX
 
@@ -63,7 +56,6 @@ python main.py https://youtube.com/playlist?list=XXXXXXX
 YT_donwloader/
 ├── main.py                     # Main entry point
 └── utils/
-    ├── gui.py                    # Graphical user interface
     ├── help.py                   # Help menu (text-based)
     └── yt_downloader.py          # Download logic
 ├── requirements.txt            # Dependencies list
