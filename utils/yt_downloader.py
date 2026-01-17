@@ -3,7 +3,7 @@ from yt_dlp import YoutubeDL
 
 OUTPUT = "Downloads"
 
-def download_audio_single(url:str, output_folder:str=OUTPUT):
+def download_audio_single(url:str, output_folder):
     """
     Downloads the audio from a YouTube video using the provided URL.
 
@@ -50,7 +50,7 @@ def download_audio_single(url:str, output_folder:str=OUTPUT):
     except Exception as e:
         print(f"ERROR: {e}")
 
-def download_audio_playlist(url:str, output_folder:str=OUTPUT):
+def download_audio_playlist(url:str, output_folder):
     """
     Downloads the audio from all videos in a YouTube playlist using the playlist URL.
     """
@@ -87,11 +87,29 @@ def download_audio_playlist(url:str, output_folder:str=OUTPUT):
     except Exception as e:
         print(f"ERROR: {e}")
 
+def download_audio_txt(txt_file:str, output_folder):
+    try:
+        with open(txt_file, "r") as file:
+            urls = [line.strip() for line in file if line.strip()]
+            for url in urls:
+                download_audio_single(url, output_folder)
+
+    except FileNotFoundError:
+        print(f"{txt_file} not found !")
+
+
 def download_audio(url: str, output_folder:str=OUTPUT):
     """
-    Check if the url is about a playlist or single video. and call the appropriate function to donwload audio.
+    Check if the url is about a youtube playlist, text file, or single video. and call the appropriate function to donwload audio.
     """
     if "&list=" in url or "playlist?" in url:
         download_audio_playlist(url, output_folder)
-    else:
+
+    elif url.startswith("https://"):
         download_audio_single(url, output_folder)
+
+    elif url.endswith(".txt"):
+        download_audio_txt(url, output_folder)
+
+    else:
+        print(f"Incorrect URL : {url}")
